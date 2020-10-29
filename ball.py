@@ -27,20 +27,20 @@ class Ball:
         self.x = self.x + self.vx
         self.y = self.y + self.vy
 
-        #collision check
 
+        #collision check
+        px = self.x + self.vx
+        py = self.y + self.vy
         #Hit right-wall
-        if( ( self.x - self.RADIUS ) <= self.dims[2]):
+        if( ( px - self.RADIUS ) <= self.dims[2]):
             self.vx = -self.vx
 
         #hit top-wall
-        if( (self.y - self.RADIUS ) <= self.dims[2]):
+        if( ( py - self.RADIUS ) <= self.dims[2]):
             self.vy = -self.vy
 
         #hit bottom-wall
-        if( (self.y + self.RADIUS ) >= self.dims[1] - self.dims[2]):
+        if( ( py + self.RADIUS ) >= self.dims[1] - self.dims[2]):
             self.vy = -self.vy
-        
-
 
         self.show(self.fgcolor)

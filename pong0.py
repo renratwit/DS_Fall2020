@@ -1,7 +1,7 @@
-# TODO: put into main() method
 from paddle import Paddle
 from ball import Ball
 import pygame
+import random
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
     HEIGHT = 400
     BORDER = 15 
     VELOCITY = 1
-    FPS = 300
+    FPS = 220
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -37,11 +37,17 @@ def main():
     x0 = WIDTH - Ball.RADIUS
     y0 = HEIGHT // 2
 
-    vx = -VELOCITY
-    vy = -VELOCITY
+    vx = -random.randint(1, 5)
+    vy = -random.randint(1, 5)
     b0 = Ball(x0, y0, vx, vy, screen, wcolor, bgcolor, [WIDTH, HEIGHT, BORDER])
     b0.show(wcolor)
     
+    balls = []
+    for i in range(0, 5):
+        vx = -random.randint(1, 3)
+        vy = -random.randint(1, 3)
+        balls.append( Ball(x0, y0, vx, vy, screen, wcolor, bgcolor, [WIDTH, HEIGHT, BORDER]) )
+        balls[i].show(wcolor)
     #Paddle
     p1 = Paddle()
 
@@ -59,6 +65,9 @@ def main():
         pygame.display.update()
         clock.tick(FPS)
         b0.update()
+
+        for b in balls:
+            b.update()
 
 
 if __name__ == "__main__":
