@@ -42,12 +42,12 @@ def main():
     b0 = Ball(x0, y0, vx, vy, screen, wcolor, bgcolor, [WIDTH, HEIGHT, BORDER])
     b0.show(wcolor)
     
-    balls = []
-    for i in range(0, 5):
-        vx = -random.randint(1, 3)
-        vy = -random.randint(1, 3)
-        balls.append( Ball(x0, y0, vx, vy, screen, wcolor, bgcolor, [WIDTH, HEIGHT, BORDER]) )
-        balls[i].show(wcolor)
+    #balls = []
+    #for i in range(0, 5):
+        #vx = -random.randint(1, 3)
+        #vy = -random.randint(1, 3)
+        #balls.append( Ball(x0, y0, vx, vy, screen, wcolor, bgcolor, [WIDTH, HEIGHT, BORDER]) )
+        #balls[i].show(wcolor)
     #Paddle
     p1 = Paddle()
 
@@ -66,8 +66,8 @@ def main():
         clock.tick(FPS)
         b0.update()
 
-        for b in balls:
-            b.update()
+        #for b in balls:
+            #b.update()
 
 
 if __name__ == "__main__":
